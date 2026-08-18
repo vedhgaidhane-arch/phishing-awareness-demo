@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consent Demo</title>
+</head>
+<body>
+  <h2>Information Sharing Demo</h2>
+
+  <p>
+    यह केवल cybersecurity training demo है।
+    Submit करने पर नीचे दी गई <b>dummy information</b> demo server को भेजी जा सकती है।
+    असली पता, password या OTP इस्तेमाल न करें।
+  </p>
+
+  <form id="demoForm">
+    <input id="name" placeholder="Demo name" required><br><br>
+    <input id="address" placeholder="Demo address" required><br><br>
+
+    <label>
+      <input type="checkbox" id="consent" required>
+      मैं समझता/समझती हूँ कि यह demo information submit होगी।
+    </label><br><br>
+
+    <button type="submit">Submit Demo</button>
+  </form>
+
+  <p id="result"></p>
+
+  <script>
+    document.getElementById("demoForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const address = document.getElementById("address").value;
+
+      document.getElementById("result").textContent =
+        "Demo submitted: " + name + " — " + address;
+
+      // यह demo जानबूझकर data को किसी server पर नहीं भेजता।
+    });
+  </script>
+</body>
+</html>
